@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j2>
+<Configuration>
+	<Properties>
+		<Property name="LOGS_DIRECTORY">/workspaces/logs/secauth</Property>
+		<Property name="OLDS_LOGS_DIRECTORY">/workspaces/logs/secauth</Property>
+		<Property name="TRACE_FILE">trace-secauth</Property>
+	</Properties>
+	<Appenders>
+		<Console name="consoleAppender" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{dd/MM/yyyy HH:mm:ss.SSS} [%thread] %X - %-5level %C{1}-%M:%4L - %msg%n" />
+		</Console>
+		<RollingFile name="traceAppender"
+			fileName="${LOGS_DIRECTORY}/${TRACE_FILE}.log"
+			filePattern="${OLDS_LOGS_DIRECTORY}/${TRACE_FILE}.log-%d{yyyy-MM-dd-HH-mm-ss}.%i.log">
+			<PatternLayout
+				pattern="%d{dd/MM/yyyy HH:mm:ss.SSS} [%thread] %X - %-5level %C{1}-%M:%4L - %msg%n">
+			</PatternLayout>
+			<Policies>
+                <SizeBasedTriggeringPolicy size="100MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="100"/>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+        <Logger name="com.mx.banobras.security.auth" additivity="false" level="trace">
+            <AppenderRef ref="traceAppender" />
+            <AppenderRef ref="consoleAppender" />
+        </Logger>
+        <Root level="info">
+			<AppenderRef ref="traceAppender" />
+            <AppenderRef ref="consoleAppender"/>
+        </Root>
+
+	</Loggers>
+
+</Configuration>

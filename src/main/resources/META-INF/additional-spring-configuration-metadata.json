@@ -1,0 +1,57 @@
+{"properties": [
+  {
+    "name": "app.url.token.valid",
+    "type": "java.lang.String",
+    "description": "A description for 'app.url.token.valid'"
+  },
+  {
+    "name": "app.ldap.validate",
+    "type": "java.lang.String",
+    "description": "A description for 'app.ldap.validate'"
+  },
+  {
+    "name": "app.ldap.server",
+    "type": "java.lang.String",
+    "description": "A description for 'app.ldap.server'"
+  },
+  {
+    "name": "app.ldap.search.base",
+    "type": "java.lang.String",
+    "description": "A description for 'app.ldap.search.base'"
+  },
+  {
+    "name": "app.ldap.username",
+    "type": "java.lang.String",
+    "description": "A description for 'app.ldap.username'"
+  },
+  {
+    "name": "app.ldap.password",
+    "type": "java.lang.String",
+    "description": "A description for 'app.ldap.password'"
+  },
+  {
+    "name": "app.ldap.dominio.mail",
+    "type": "java.lang.String",
+    "description": "A description for 'app.ldap.dominio.mail'"
+  },
+  {
+    "name": "app.cipher.key",
+    "type": "java.lang.String",
+    "description": "A description for 'app.cipher.key'"
+  },
+  {
+    "name": "app.cipher.iv",
+    "type": "java.lang.String",
+    "description": "A description for 'app.cipher.iv'"
+  },
+  {
+    "name": "app.cipher.mode",
+    "type": "java.lang.String",
+    "description": "A description for 'app.cipher.mode'"
+  },
+  {
+    "name": "app.cipher.aes",
+    "type": "java.lang.String",
+    "description": "A description for 'app.cipher.aes'"
+  }
+]}
