@@ -44,7 +44,7 @@ public class TokenClient implements ITokenClient {
 
 	/** Variable que contiene el nombre de usuario de conexion en ldap */
 	@Value("${app.url.token.valid}")
-	String urlTokenVlaid;
+	String urlTokenValid;
 
 	/**
 	 * Metodo para validar el token.
@@ -68,7 +68,7 @@ public class TokenClient implements ITokenClient {
 
 		SSLContext sslContext = null;
 
-		if(urlTokenVlaid.toUpperCase().contains(ConstantsSecurityAuth.HTTPS.getName())) {
+		if(urlTokenValid.toUpperCase().contains(ConstantsSecurityAuth.HTTPS.getName())) {
 			sslContext = SSLContext.getInstance(ConstantsSecurityAuth.SSL.getName());
 			sslContext.init(null, new TrustManager[] { MOCK_TRUST_MANAGER }, new SecureRandom());
 			client =  HttpClient.newBuilder().sslContext(sslContext).build();
@@ -81,8 +81,8 @@ public class TokenClient implements ITokenClient {
 				.setHeader("app-name", securityAuthInDTO.getAppName())
 				.setHeader("consumer-id", securityAuthInDTO.getConsumerId())
 				.setHeader("functional-id", securityAuthInDTO.getFunctionalId())
-				.setHeader("transaction-id", securityAuthInDTO.getTransactionId()).
-				uri(URI.create(urlTokenVlaid))
+				.setHeader("transaction-id", securityAuthInDTO.getTransactionId())
+				.uri(URI.create(urlTokenValid))
 				.POST(HttpRequest.BodyPublishers.noBody()).build();
 
 		response = client.send(request, HttpResponse.BodyHandlers.ofString());
